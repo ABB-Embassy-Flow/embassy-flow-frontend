@@ -163,60 +163,52 @@
         </section>
 
 
-        <!-- Sənəd Növü Seçimi Bölməsi -->
         <section class="mb-6">
-            <!-- Başlıq və mətn (Səhifə fonundadır) -->
             <div class="mb-6 px-2">
-                <h2 class="text-lg font-semibold mb-1 text-slate-900">Sənəd növünü seçin.</h2>
-                <p class="text-slate-500 text-sm">Hansı sənədi sifariş etmək istədiyinizi seçin, hər iki sənəd rəqəmsal
+                <h2 class="text-2xl font-bold mb-1 text-slate-900">Sənəd növünü seçin.</h2>
+                <p class="text-slate-500 font-semibold text-sm">Hansı sənədi sifariş etmək istədiyinizi seçin, hər iki
+                    sənəd rəqəmsal
                     formada təqdim ediləcək ünvana göndəriləcək</p>
             </div>
 
-            <!-- Arxa fonu ağ olan əsas konteyner (Kartları və düyməni əhatə edir) -->
             <div class="bg-white p-6 md:p-8 rounded-2xl border border-slate-200 shadow-sm">
-
-                <!-- Kartlar grid-i -->
+                <!-- CARDS -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
 
-                    <!-- Card 1 (Active / Seçilmiş) -->
-                    <div
-                        class="border-2 border-blue-600 rounded-2xl p-6 text-center cursor-pointer bg-white transition shadow-sm relative">
+                    <div id="card-1" onclick="selectCard('1')"
+                        class="document-card border-2 border-blue-600 rounded-2xl p-6 text-center cursor-pointer bg-white transition shadow-sm relative">
                         <span class="text-3xl mb-4 block">📄</span>
-                        <h3 class="font-bold text-base mb-2 text-slate-900">Hesabdan Çıxarış</h3>
-                        <p class="text-xs text-slate-500 mb-6 leading-relaxed max-w-xs mx-auto">
+                        <h3 class="font-bold text-lg font-semibold text-base mb-2 text-slate-900">Hesabdan Çıxarış</h3>
+                        <p class="text-sm font-semibold text-slate-500 mb-6 leading-relaxed max-w-xs mx-auto">
                             Seçdiyiniz hesabdan dövri çıxarış səfirliyə, digər qurumlara və ya şəxsi istifadə üçün
                         </p>
                         <div class="font-bold text-lg mb-4 text-slate-900">5 Azn</div>
 
-                        <!-- Seçilmiş radio düymə -->
                         <div
                             class="w-5 h-5 border-2 border-blue-600 rounded-full mx-auto flex items-center justify-center bg-white">
                             <div class="w-2.5 h-2.5 bg-blue-600 rounded-full"></div>
                         </div>
                     </div>
 
-                    <!-- Card 2 (Inactive / Seçilməmiş) -->
-                    <div
-                        class="border-2 border-slate-200 hover:border-slate-300 rounded-2xl p-6 text-center cursor-pointer bg-white transition relative">
+                    <div id="card-2" onclick="selectCard('2')"
+                        class="document-card border-2 border-slate-200 hover:border-slate-300 rounded-2xl p-6 text-center cursor-pointer bg-white transition relative">
                         <span class="text-3xl mb-4 block">✈️</span>
-                        <h3 class="font-semibold text-base mb-2 text-slate-900">Səfirliyə arayış</h3>
-                        <p class="text-xs text-slate-500 mb-6 leading-relaxed max-w-xs mx-auto">
+                        <h3 class="font-semibold text-lg mb-2 text-slate-900">Səfirliyə arayış</h3>
+                        <p class="text-sm font-semibold text-slate-500 mb-6 leading-relaxed max-w-xs mx-auto">
                             Seçdiyiniz hesabdan dövri çıxarış səfirliyə, digər qurumlara və ya şəxsi istifadə üçün
                         </p>
                         <div class="font-bold text-lg mb-4 text-slate-900">10 Azn</div>
-
-                        <!-- Seçilməmiş radio düymə -->
                         <div
                             class="w-5 h-5 border-2 border-slate-300 rounded-full mx-auto flex items-center justify-center bg-white">
-                            <div class="w-2 h-2 bg-slate-300 rounded-full"></div>
+                            <div class="w-2 h-2 bg-slate-300 rounded-full hidden"></div>
                         </div>
                     </div>
 
                 </div>
 
                 <div class="flex justify-center">
-                    <button
-                        class="w-full max-w-lg bg-slate-300 active:bg-blue-600 text-white font-semibold py-4 rounded-xl transition shadow-md shadow-blue-500/20 text-center">
+                    <button id="continue-btn" disabled
+                        class="w-full max-w-lg bg-slate-300 text-white font-semibold py-4 rounded-xl transition shadow-sm cursor-not-allowed text-center">
                         Davam et
                     </button>
                 </div>
@@ -225,6 +217,8 @@
         </section>
 
     </main>
+
+    <script src="./script.js"></script>
 
 </body>
 

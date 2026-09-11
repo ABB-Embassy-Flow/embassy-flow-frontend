@@ -284,7 +284,7 @@
                         class="w-1/3 bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 font-semibold py-4 rounded-xl transition text-center cursor-pointer">
                         Geri
                     </button>
-                    <button onclick="showStep2Part3()"
+                    <button onclick="showStep2Part2()"
                         class="w-2/3 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 rounded-xl transition shadow-md shadow-blue-500/20 text-center cursor-pointer">
                         İrəli
                     </button>
@@ -391,49 +391,50 @@
                         Geri
                     </button>
                     <!-- Bu hissəni düzəlt: -->
-                    <button onclick="verifyOtpAndNext()"
+                    <button onclick="showStep2Part3()""
                         class="w-2/3 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 rounded-xl transition shadow-md shadow-blue-500/20 text-center cursor-pointer">
                         İrəli
                     </button>
                 </div>
             </div>
 
-            <div id="fin-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-xs"
-                style="display: none;">
-                <div
-                    class="bg-white rounded-3xl p-6 md:p-8 max-w-lg w-full mx-4 shadow-2xl relative animate-in fade-in zoom-in-95 duration-200">
 
-                    <button onclick="closeFinModal()"
-                        class="absolute top-5 right-5 text-slate-400 hover:text-slate-600 text-xl font-bold cursor-pointer w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center">
-                        ✕
-                    </button>
-                    <div class="flex items-center gap-3 mb-4">
-                        <div
-                            class="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-lg shadow-md shadow-blue-500/30">
-                            ?
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900">FIN Kod nədir?</h3>
-                    </div>
-
-                    <p class="text-slate-600 text-sm text-center leading-relaxed mb-6">
-                        Hər Azərbaycan vətəndaşına verilmiş 7 simvollu unikal kod (hərf + rəqəm qarışığı). Şəxsiyyət
-                        vəsiqəsinin ön üzündə, my.gov.az, emas.az portallarında istifadə olunur.
-                    </p>
-
-                    <p class="text-blue-600 text-sm font-semibold mb-6">
-                        FIN — Fərdi İdentifikasiya Nömrəsi
-                    </p>
-
-                    <div class="flex flex-col items-center gap-4 mb-2">
-                        <img src="./vesige1.png" alt="Yeni nəsil şəxsiyyət vəsiqəsi"
-                            class="w-full max-w-[280px] md:max-w-[320px] h-auto rounded-xl border border-slate-200 shadow-sm object-contain">
-                        <img src="./vesige2.png" alt="Köhnə nəsil şəxsiyyət vəsiqəsi"
-                            class="w-full max-w-[280px] md:max-w-[320px] h-auto rounded-xl border border-slate-200 shadow-sm object-contain">
-                    </div>
-
-                </div>
-            </div>
         </section>
+        <div id="fin-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-xs"
+            style="display: none;">
+            <div
+                class="bg-white rounded-3xl p-6 md:p-8 max-w-lg w-full mx-4 shadow-2xl relative animate-in fade-in zoom-in-95 duration-200">
+
+                <button onclick="closeFinModal()"
+                    class="absolute top-5 right-5 text-slate-400 hover:text-slate-600 text-xl font-bold cursor-pointer w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center">
+                    ✕
+                </button>
+                <div class="flex items-center gap-3 mb-4">
+                    <div
+                        class="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-lg shadow-md shadow-blue-500/30">
+                        ?
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900">FIN Kod nədir?</h3>
+                </div>
+
+                <p class="text-slate-600 text-sm text-center leading-relaxed mb-6">
+                    Hər Azərbaycan vətəndaşına verilmiş 7 simvollu unikal kod (hərf + rəqəm qarışığı). Şəxsiyyət
+                    vəsiqəsinin ön üzündə, my.gov.az, emas.az portallarında istifadə olunur.
+                </p>
+
+                <p class="text-blue-600 text-sm font-semibold mb-6">
+                    FIN — Fərdi İdentifikasiya Nömrəsi
+                </p>
+
+                <div class="flex flex-col items-center gap-4 mb-2">
+                    <img src="./vesige1.png" alt="Yeni nəsil şəxsiyyət vəsiqəsi"
+                        class="w-full max-w-[280px] md:max-w-[320px] h-auto rounded-xl border border-slate-200 shadow-sm object-contain">
+                    <img src="./vesige2.png" alt="Köhnə nəsil şəxsiyyət vəsiqəsi"
+                        class="w-full max-w-[280px] md:max-w-[320px] h-auto rounded-xl border border-slate-200 shadow-sm object-contain">
+                </div>
+
+            </div>
+        </div>
 
     </main>
 

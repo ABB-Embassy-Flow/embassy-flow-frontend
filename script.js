@@ -60,7 +60,7 @@ function goToStep(stepNumber) {
 
         if (i < stepNumber) {
             circleBox.className = "circle-box w-10 h-10 rounded-full bg-emerald-500 text-white flex items-center justify-center font-semibold text-lg relative z-10 shadow-md";
-            circleBox.innerHTML = i; 
+            circleBox.innerHTML = i;
 
             if (wrapper) wrapper.className = "step-circle-wrapper relative w-10 h-10 mx-auto mb-2";
             if (pulseRing) pulseRing.classList.add('hidden');
@@ -109,16 +109,6 @@ function selectLanguage(lang) {
     }
 }
 
-function showStep2Part2() {
-    document.getElementById('step-2-sub-1').style.display = 'none';
-    document.getElementById('step-2-sub-2').style.display = 'block';
-}
-
-function showStep2Part1() {
-    document.getElementById('step-2-sub-2').style.display = 'none';
-    document.getElementById('step-2-sub-1').style.display = 'block';
-}
-
 function openFinModal() {
     document.getElementById('fin-modal').style.display = 'flex';
 }
@@ -134,12 +124,29 @@ window.addEventListener('click', function (event) {
     }
 });
 
+function showStep2Part1() {
+    document.getElementById('step-2-sub-1').style.display = 'block';
+    document.getElementById('step-2-sub-2').style.display = 'none';
+    document.getElementById('step-2-sub-3').style.display = 'none';
+}
+
+function showStep2Part2() {
+    document.getElementById('step-2-sub-1').style.display = 'none';
+    document.getElementById('step-2-sub-2').style.display = 'block';
+    document.getElementById('step-2-sub-3').style.display = 'none';
+}
+
 function showStep2Part3() {
     document.getElementById('step-2-sub-1').style.display = 'none';
     document.getElementById('step-2-sub-2').style.display = 'none';
     document.getElementById('step-2-sub-3').style.display = 'block';
 }
 
+// Əgər OTP ekranından FİN ekranına (part 2) qayıtmaq üçün düymə varsa:
+function showStep2Part2FromPart3() {
+    document.getElementById('step-2-sub-3').style.display = 'none';
+    document.getElementById('step-2-sub-2').style.display = 'block';
+}
 function verifyOtpAndNext() {
     goToStep(3);
 }

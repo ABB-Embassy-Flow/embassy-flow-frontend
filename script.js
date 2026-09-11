@@ -142,7 +142,6 @@ function showStep2Part3() {
     document.getElementById('step-2-sub-3').style.display = 'block';
 }
 
-// Əgər OTP ekranından FİN ekranına (part 2) qayıtmaq üçün düymə varsa:
 function showStep2Part2FromPart3() {
     document.getElementById('step-2-sub-3').style.display = 'none';
     document.getElementById('step-2-sub-2').style.display = 'block';

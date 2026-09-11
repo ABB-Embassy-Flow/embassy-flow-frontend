@@ -94,19 +94,15 @@ function selectLanguage(lang) {
     const langAz = document.getElementById('lang-az');
 
     if (lang === 'en') {
-        // İngilis dili seçildikdə
         langEn.className = "border-2 border-blue-600 rounded-2xl p-5 text-center cursor-pointer bg-white transition shadow-sm relative flex items-center justify-center gap-3";
         langEn.querySelector('span:last-child').className = "font-bold text-slate-900";
 
-        // Azərbaycan dilini sıfırlayırıq
         langAz.className = "border-2 border-slate-200 hover:border-slate-300 rounded-2xl p-5 text-center cursor-pointer bg-white transition relative flex items-center justify-center gap-3";
         langAz.querySelector('span:last-child').className = "font-semibold text-slate-700";
     } else {
-        // Azərbaycan dili seçildikdə
         langAz.className = "border-2 border-blue-600 rounded-2xl p-5 text-center cursor-pointer bg-white transition shadow-sm relative flex items-center justify-center gap-3";
         langAz.querySelector('span:last-child').className = "font-bold text-slate-900";
 
-        // İngilis dilini sıfırlayırıq
         langEn.className = "border-2 border-slate-200 hover:border-slate-300 rounded-2xl p-5 text-center cursor-pointer bg-white transition relative flex items-center justify-center gap-3";
         langEn.querySelector('span:last-child').className = "font-semibold text-slate-700";
     }
@@ -121,3 +117,18 @@ function showStep2Part1() {
     document.getElementById('step-2-sub-2').style.display = 'none';
     document.getElementById('step-2-sub-1').style.display = 'block';
 }
+
+function openFinModal() {
+    document.getElementById('fin-modal').style.display = 'flex';
+}
+
+function closeFinModal() {
+    document.getElementById('fin-modal').style.display = 'none';
+}
+
+window.addEventListener('click', function(event) {
+    const modal = document.getElementById('fin-modal');
+    if (event.target === modal) {
+        closeFinModal();
+    }
+});

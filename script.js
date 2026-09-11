@@ -13,10 +13,10 @@ function selectCard(cardId) {
 
     const activeCard = document.getElementById(`card-${cardId}`);
     activeCard.className = "document-card border-2 border-blue-600 rounded-2xl p-6 text-center cursor-pointer bg-white transition shadow-sm relative";
-    
+
     const activeRadio = activeCard.querySelector('.w-5');
     activeRadio.className = "w-5 h-5 border-2 border-blue-600 rounded-full mx-auto flex items-center justify-center bg-white";
-    
+
     const activeDot = activeRadio.querySelector('div');
     activeDot.className = "w-2.5 h-2.5 bg-blue-600 rounded-full";
 
@@ -33,7 +33,7 @@ function goToStep(stepNumber) {
     if (stepNumber === 2) {
         const card2 = document.getElementById('card-2');
         if (!card2.classList.contains('border-blue-600')) {
-            return; 
+            return;
         }
     }
 
@@ -49,38 +49,39 @@ function goToStep(stepNumber) {
 
     const totalSteps = 7;
     for (let i = 1; i <= totalSteps; i++) {
+        // Hər bir addım elementini data-step atributu ilə tapırıq
         const stepItem = document.querySelector(`[data-step="${i}"]`);
         if (!stepItem) continue;
 
         const circleBox = stepItem.querySelector('.circle-box');
         const pulseRing = stepItem.querySelector('.pulse-ring');
         const stepText = stepItem.querySelector('.step-text');
+        const wrapper = stepItem.querySelector('.step-circle-wrapper');
 
         if (i < stepNumber) {
-            circleBox.className = "circle-box w-10 h-10 rounded-full bg-emerald-500 text-white flex items-center justify-center font-semibold text-lg mb-2 shadow-md relative z-10";
-            circleBox.innerHTML = "1";
+            circleBox.className = "circle-box w-10 h-10 rounded-full bg-emerald-500 text-white flex items-center justify-center font-semibold text-lg relative z-10 shadow-md";
+            circleBox.innerHTML = i; 
+
+            if (wrapper) wrapper.className = "step-circle-wrapper relative w-10 h-10 mx-auto mb-2";
             if (pulseRing) pulseRing.classList.add('hidden');
             if (stepText) stepText.className = "step-text text-xs font-semibold text-slate-500 text-center leading-tight";
-        } 
+        }
         else if (i === stepNumber) {
             circleBox.className = "circle-box w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center font-semibold text-lg relative z-10 shadow-md shadow-blue-500/30";
             circleBox.innerHTML = i;
-            
-            const wrapper = stepItem.querySelector('.step-circle-wrapper');
-            if (wrapper) {
-                wrapper.className = "step-circle-wrapper relative w-10 h-10 mx-auto mb-2";
-            }
 
+            if (wrapper) wrapper.className = "step-circle-wrapper relative w-10 h-10 mx-auto mb-2";
             if (pulseRing) {
                 pulseRing.className = "pulse-ring absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 bg-blue-200 rounded-full animate-pulse z-0";
                 pulseRing.classList.remove('hidden');
             }
-            
             if (stepText) stepText.className = "step-text text-xs font-semibold text-slate-900 text-center leading-tight";
         }
         else {
-            circleBox.className = "circle-box w-10 h-10 rounded-full bg-[#F6F8FF] text-slate-500 flex items-center justify-center font-semibold text-lg mb-2 border border-slate-300 shadow-sm relative z-10";
+            circleBox.className = "circle-box w-10 h-10 rounded-full bg-[#F6F8FF] text-slate-500 flex items-center justify-center font-semibold text-lg border border-slate-300 shadow-sm relative z-10";
             circleBox.innerHTML = i;
+
+            if (wrapper) wrapper.className = "step-circle-wrapper relative w-10 h-10 mx-auto mb-2";
             if (pulseRing) pulseRing.classList.add('hidden');
             if (stepText) stepText.className = "step-text text-xs text-slate-500 text-center leading-tight";
         }
@@ -126,9 +127,19 @@ function closeFinModal() {
     document.getElementById('fin-modal').style.display = 'none';
 }
 
-window.addEventListener('click', function(event) {
+window.addEventListener('click', function (event) {
     const modal = document.getElementById('fin-modal');
     if (event.target === modal) {
         closeFinModal();
     }
 });
+
+function showStep2Part3() {
+    document.getElementById('step-2-sub-1').style.display = 'none';
+    document.getElementById('step-2-sub-2').style.display = 'none';
+    document.getElementById('step-2-sub-3').style.display = 'block';
+}
+
+function verifyOtpAndNext() {
+    goToStep(3);
+}

@@ -111,3 +111,13 @@ function selectLanguage(lang) {
         langEn.querySelector('span:last-child').className = "font-semibold text-slate-700";
     }
 }
+
+function showStep2Part2() {
+    document.getElementById('step-2-sub-1').style.display = 'none';
+    document.getElementById('step-2-sub-2').style.display = 'block';
+}
+
+function showStep2Part1() {
+    document.getElementById('step-2-sub-2').style.display = 'none';
+    document.getElementById('step-2-sub-1').style.display = 'block';
+}

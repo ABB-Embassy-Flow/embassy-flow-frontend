@@ -28,3 +28,86 @@ function selectCard(cardId) {
         continueBtn.className = "w-full max-w-lg bg-slate-300 text-white font-semibold py-4 rounded-xl transition shadow-sm cursor-not-allowed text-center";
     }
 }
+
+function goToStep(stepNumber) {
+    if (stepNumber === 2) {
+        const card2 = document.getElementById('card-2');
+        if (!card2.classList.contains('border-blue-600')) {
+            return; 
+        }
+    }
+
+    const allSections = document.querySelectorAll('section[id^="step-"]');
+    allSections.forEach(section => {
+        section.style.display = 'none';
+    });
+
+    const targetSection = document.getElementById(`step-${stepNumber}`);
+    if (targetSection) {
+        targetSection.style.display = 'block';
+    }
+
+    const totalSteps = 7;
+    for (let i = 1; i <= totalSteps; i++) {
+        const stepItem = document.querySelector(`[data-step="${i}"]`);
+        if (!stepItem) continue;
+
+        const circleBox = stepItem.querySelector('.circle-box');
+        const pulseRing = stepItem.querySelector('.pulse-ring');
+        const stepText = stepItem.querySelector('.step-text');
+
+        if (i < stepNumber) {
+            circleBox.className = "circle-box w-10 h-10 rounded-full bg-emerald-500 text-white flex items-center justify-center font-semibold text-lg mb-2 shadow-md relative z-10";
+            circleBox.innerHTML = "1";
+            if (pulseRing) pulseRing.classList.add('hidden');
+            if (stepText) stepText.className = "step-text text-xs font-semibold text-slate-500 text-center leading-tight";
+        } 
+        else if (i === stepNumber) {
+            circleBox.className = "circle-box w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center font-semibold text-lg relative z-10 shadow-md shadow-blue-500/30";
+            circleBox.innerHTML = i;
+            
+            const wrapper = stepItem.querySelector('.step-circle-wrapper');
+            if (wrapper) {
+                wrapper.className = "step-circle-wrapper relative w-10 h-10 mx-auto mb-2";
+            }
+
+            if (pulseRing) {
+                pulseRing.className = "pulse-ring absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 bg-blue-200 rounded-full animate-pulse z-0";
+                pulseRing.classList.remove('hidden');
+            }
+            
+            if (stepText) stepText.className = "step-text text-xs font-semibold text-slate-900 text-center leading-tight";
+        }
+        else {
+            circleBox.className = "circle-box w-10 h-10 rounded-full bg-[#F6F8FF] text-slate-500 flex items-center justify-center font-semibold text-lg mb-2 border border-slate-300 shadow-sm relative z-10";
+            circleBox.innerHTML = i;
+            if (pulseRing) pulseRing.classList.add('hidden');
+            if (stepText) stepText.className = "step-text text-xs text-slate-500 text-center leading-tight";
+        }
+    }
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function selectLanguage(lang) {
+    const langEn = document.getElementById('lang-en');
+    const langAz = document.getElementById('lang-az');
+
+    if (lang === 'en') {
+        // İngilis dili seçildikdə
+        langEn.className = "border-2 border-blue-600 rounded-2xl p-5 text-center cursor-pointer bg-white transition shadow-sm relative flex items-center justify-center gap-3";
+        langEn.querySelector('span:last-child').className = "font-bold text-slate-900";
+
+        // Azərbaycan dilini sıfırlayırıq
+        langAz.className = "border-2 border-slate-200 hover:border-slate-300 rounded-2xl p-5 text-center cursor-pointer bg-white transition relative flex items-center justify-center gap-3";
+        langAz.querySelector('span:last-child').className = "font-semibold text-slate-700";
+    } else {
+        // Azərbaycan dili seçildikdə
+        langAz.className = "border-2 border-blue-600 rounded-2xl p-5 text-center cursor-pointer bg-white transition shadow-sm relative flex items-center justify-center gap-3";
+        langAz.querySelector('span:last-child').className = "font-bold text-slate-900";
+
+        // İngilis dilini sıfırlayırıq
+        langEn.className = "border-2 border-slate-200 hover:border-slate-300 rounded-2xl p-5 text-center cursor-pointer bg-white transition relative flex items-center justify-center gap-3";
+        langEn.querySelector('span:last-child').className = "font-semibold text-slate-700";
+    }
+}
